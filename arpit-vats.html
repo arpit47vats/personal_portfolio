@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arpit Vats — Mechanical & Automation Engineer</title>
+<style>
+:root {
+  --bg:#070712;--bg2:#0d0d1a;--bg3:#12122a;
+  --card:rgba(255,255,255,0.04);--card-b:rgba(255,255,255,0.08);--card-h:rgba(255,255,255,0.07);
+  --text:#f5f5f7;--text2:#a1a1aa;--text3:#71717a;
+  --accent:#0071e3;--accent2:#00d4ff;--glow:rgba(0,113,227,0.35);
+  --green:#34c759;--orange:#ff9500;--purple:#af52de;--red:#ff3b30;
+  --border:rgba(255,255,255,0.08);--tr:0.3s cubic-bezier(0.25,0.1,0.25,1);
+  --r:16px;--r-sm:10px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+a{color:var(--accent2);text-decoration:none;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:3px;}
+::-webkit-scrollbar-thumb:hover{background:var(--accent);}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:58px;background:rgba(7,7,18,0.75);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+.nav-brand{font-size:15px;font-weight:700;background:linear-gradient(135deg,#0071e3,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.2px;}
+.nav-links{display:flex;gap:26px;list-style:none;}
+.nav-links a{font-size:13px;color:var(--text2);font-weight:500;transition:color var(--tr);}
+.nav-links a:hover,.nav-links a.active{color:var(--text);}
+.nav-cta{background:var(--accent);color:#fff !important;padding:6px 16px;border-radius:20px;font-size:13px !important;font-weight:600 !important;-webkit-text-fill-color:#fff !important;transition:all var(--tr) !important;}
+.nav-cta:hover{background:#0077ed;transform:translateY(-1px);}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:90px 40px 70px;overflow:hidden;}
+#star-canvas{position:absolute;inset:0;pointer-events:none;width:100%;height:100%;}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.22);color:var(--accent2);font-size:11px;font-weight:700;padding:6px 16px;border-radius:100px;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:28px;animation:fadeDown 0.8s ease both;}
+.hero-badge-dot{width:7px;height:7px;background:var(--accent2);border-radius:50%;animation:pulseDot 1.6s ease infinite;}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.65);}}
+.hero-name{font-size:clamp(50px,8vw,90px);font-weight:800;letter-spacing:-2.5px;line-height:1.03;margin-bottom:16px;background:linear-gradient(135deg,#ffffff 0%,#c8d8ef 45%,#00d4ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fadeUp 0.8s 0.1s ease both;}
+.hero-title{font-size:clamp(15px,2.2vw,21px);font-weight:400;color:var(--text2);margin-bottom:10px;animation:fadeUp 0.8s 0.2s ease both;}
+#tw{font-size:clamp(13px,1.8vw,17px);color:var(--accent2);font-weight:600;min-height:26px;margin-bottom:36px;animation:fadeUp 0.8s 0.3s ease both;}
+#tw::after{content:'|';animation:blink 0.8s step-end infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;animation:fadeUp 0.8s 0.4s ease both;}
+.btn-primary{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:14px;font-weight:600;padding:11px 24px;border-radius:100px;border:none;cursor:pointer;transition:all var(--tr);text-decoration:none;box-shadow:0 4px 20px rgba(0,113,227,0.4);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,113,227,0.6);}
+.btn-ghost{display:inline-flex;align-items:center;gap:7px;background:transparent;color:var(--text);font-size:14px;font-weight:600;padding:10px 22px;border-radius:100px;border:1px solid var(--border);cursor:pointer;transition:all var(--tr);text-decoration:none;}
+.btn-ghost:hover{border-color:var(--accent2);color:var(--accent2);transform:translateY(-2px);}
+.hero-stats{display:flex;gap:48px;justify-content:center;margin-top:64px;flex-wrap:wrap;animation:fadeUp 0.8s 0.5s ease both;}
+.h-stat-num{font-size:30px;font-weight:800;background:linear-gradient(135deg,#fff,var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.h-stat-lbl{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.6px;margin-top:2px;}
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--text3);font-size:10px;letter-spacing:1.2px;text-transform:uppercase;animation:fadeUp 1s 1.2s ease both;}
+.scroll-arr{width:18px;height:18px;border-right:2px solid var(--text3);border-bottom:2px solid var(--text3);transform:rotate(45deg);animation:bounce 1.6s ease infinite;}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
+
+/* SECTIONS */
+.sec-wrap{padding:100px 40px;max-width:1100px;margin:0 auto;}
+.sec-label{font-size:11px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;}
+.sec-title{font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-0.8px;margin-bottom:12px;color:var(--text);}
+.sec-sub{font-size:15px;color:var(--text2);max-width:540px;margin-bottom:52px;}
+.divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);}
+
+/* GLASS CARDS */
+.gc{background:var(--card);border:1px solid var(--card-b);border-radius:var(--r);padding:28px;transition:all var(--tr);position:relative;overflow:hidden;}
+.gc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,113,227,0.04) 0%,transparent 60%);pointer-events:none;}
+.gc:hover{border-color:rgba(0,212,255,0.2);background:var(--card-h);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,113,227,0.13);}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:32px;}
+.timeline::before{content:'';position:absolute;left:0;top:8px;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent2),transparent);}
+.tl-item{position:relative;margin-bottom:36px;opacity:0;transform:translateX(-18px);transition:all 0.6s ease;}
+.tl-item.vis{opacity:1;transform:translateX(0);}
+.tl-dot{position:absolute;left:-39px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);box-shadow:0 0 12px var(--glow);}
+.tl-dot.now{background:var(--accent2);box-shadow:0 0 16px rgba(0,212,255,0.5);}
+.tl-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:4px;}
+.tl-role{font-size:16px;font-weight:700;color:var(--text);}
+.tl-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;background:rgba(0,212,255,0.12);color:var(--accent2);border:1px solid rgba(0,212,255,0.2);text-transform:uppercase;letter-spacing:0.5px;margin-left:8px;vertical-align:middle;}
+.tl-co{font-size:13px;font-weight:600;color:var(--accent2);margin-top:3px;}
+.tl-dates{font-size:12px;color:var(--text3);font-weight:500;white-space:nowrap;margin-top:5px;}
+.tl-ul{list-style:none;margin-top:12px;}
+.tl-ul li{font-size:13px;color:var(--text2);padding:3px 0 3px 16px;position:relative;line-height:1.55;}
+.tl-ul li::before{content:'›';position:absolute;left:0;color:var(--accent);font-weight:700;}
+
+/* EDU */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.edu-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px;}
+.edu-deg{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.edu-sch{font-size:13px;font-weight:600;color:var(--accent2);margin-bottom:6px;}
+.edu-meta{font-size:12px;color:var(--text3);}
+.edu-gpa{display:inline-block;margin-top:10px;font-size:12px;font-weight:700;padding:3px 12px;background:rgba(52,199,89,0.1);color:var(--green);border-radius:100px;border:1px solid rgba(52,199,89,0.2);}
+
+/* PORTFOLIO */
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:34px;}
+.fb{padding:7px 18px;border-radius:100px;border:1px solid var(--border);background:transparent;color:var(--text2);font-size:13px;font-weight:600;cursor:pointer;transition:all var(--tr);}
+.fb:hover{border-color:var(--accent2);color:var(--accent2);}
+.fb.on{background:var(--accent);border-color:var(--accent);color:#fff;}
+.port-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(278px,1fr));gap:16px;}
+.pc{background:var(--card);border:1px solid var(--card-b);border-radius:var(--r);padding:22px;transition:all var(--tr);position:relative;overflow:hidden;}
+.pc::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform var(--tr);}
+.pc:hover{border-color:rgba(0,212,255,0.2);background:var(--card-h);transform:translateY(-4px);box-shadow:0 14px 38px rgba(0,113,227,0.14);}
+.pc:hover::after{transform:scaleX(1);}
+.pc.hide{display:none;}
+.pc-tag{display:inline-block;font-size:10px;font-weight:700;padding:3px 9px;border-radius:100px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;}
+.pc-tag.t-prod{background:rgba(0,113,227,0.13);color:var(--accent2);border:1px solid rgba(0,113,227,0.2);}
+.pc-tag.t-sim{background:rgba(175,82,222,0.13);color:var(--purple);border:1px solid rgba(175,82,222,0.2);}
+.pc-tag.t-prac{background:rgba(255,149,0,0.1);color:var(--orange);border:1px solid rgba(255,149,0,0.2);}
+.pc-name{font-size:15px;font-weight:700;color:var(--text);margin-bottom:5px;}
+.pc-sub{font-size:11px;color:var(--text3);margin-bottom:10px;}
+.pc-desc{font-size:12.5px;color:var(--text2);line-height:1.6;}
+.pc-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
+.chip{font-size:10px;background:rgba(255,255,255,0.05);border:1px solid var(--border);color:var(--text3);padding:2px 8px;border-radius:6px;}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;}
+.sg-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent2);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.sg-title::after{content:'';flex:1;height:1px;background:var(--border);}
+.stags{display:flex;flex-wrap:wrap;gap:7px;}
+.stag{font-size:12px;font-weight:500;padding:5px 11px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid var(--border);color:var(--text2);transition:all var(--tr);cursor:default;}
+.stag:hover{background:rgba(0,113,227,0.1);border-color:var(--accent);color:var(--accent2);transform:translateY(-1px);}
+
+/* CERTS */
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:14px;}
+.cert{display:flex;align-items:flex-start;gap:13px;background:var(--card);border:1px solid var(--card-b);border-radius:var(--r-sm);padding:16px;transition:all var(--tr);}
+.cert:hover{border-color:rgba(52,199,89,0.3);background:var(--card-h);transform:translateY(-2px);}
+.cert-ico{width:38px;height:38px;flex-shrink:0;background:rgba(52,199,89,0.1);border:1px solid rgba(52,199,89,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;}
+.cert-name{font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.cert-by{font-size:11px;color:var(--text3);}
+
+/* PROJECTS */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;}
+.pj{background:var(--card);border:1px solid var(--card-b);border-radius:var(--r);padding:24px;transition:all var(--tr);}
+.pj:hover{border-color:rgba(0,212,255,0.2);transform:translateY(-3px);box-shadow:0 12px 34px rgba(0,113,227,0.12);}
+.pj-yr{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px;}
+.pj-name{font-size:15px;font-weight:700;color:var(--text);margin-bottom:9px;}
+.pj-desc{font-size:13px;color:var(--text2);line-height:1.6;}
+
+/* CONTACT */
+#contact-sec{text-align:center;}
+.contact-card{max-width:580px;margin:0 auto;background:var(--card);border:1px solid var(--card-b);border-radius:24px;padding:48px;position:relative;overflow:hidden;}
+.contact-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(0,113,227,0.14) 0%,transparent 70%);pointer-events:none;}
+.ci{display:flex;align-items:center;justify-content:center;gap:10px;font-size:14px;color:var(--text2);margin-top:12px;}
+.ci a{color:var(--accent2);}
+
+/* SCROLL-TOP */
+#stb{position:fixed;bottom:28px;right:28px;width:42px;height:42px;background:var(--accent);border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:17px;opacity:0;pointer-events:none;transition:all var(--tr);z-index:999;box-shadow:0 4px 16px rgba(0,113,227,0.4);}
+#stb.vis{opacity:1;pointer-events:auto;}
+#stb:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,113,227,0.6);}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(22px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.rv.vis{opacity:1;transform:translateY(0);}
+.d1{transition-delay:0.1s;}.d2{transition-delay:0.2s;}.d3{transition-delay:0.3s;}
+
+/* AVATAR */
+.avatar-wrap{position:relative;display:inline-block;margin-bottom:28px;}
+.avatar-ring{position:absolute;inset:-5px;border-radius:50%;background:conic-gradient(from 0deg,#0071e3,#00d4ff,#0071e3);animation:spinRing 4s linear infinite;z-index:0;}
+.avatar-ring::after{content:'';position:absolute;inset:3px;border-radius:50%;background:var(--bg);}
+@keyframes spinRing{to{transform:rotate(360deg);}}
+.avatar-img{position:relative;z-index:1;width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:top;display:block;}
+.avatar-status{position:absolute;bottom:4px;right:4px;z-index:2;width:18px;height:18px;background:var(--green);border:3px solid var(--bg);border-radius:50%;}
+
+/* ABOUT GRID */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.info-lbl{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;}
+.info-val{font-size:13px;color:var(--text);font-weight:600;}
+
+/* FOOTER */
+footer{text-align:center;padding:28px 40px;font-size:12px;color:var(--text3);border-top:1px solid var(--border);}
+
+/* KEYFRAMES */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-10px);}to{opacity:1;transform:translateY(0);}}
+
+/* CARD THUMBNAILS */
+.pc{cursor:pointer;}
+.pc-thumb{width:100%;height:160px;object-fit:cover;object-position:center top;border-radius:10px;margin-bottom:14px;display:block;transition:transform var(--tr),filter var(--tr);background:var(--bg3);}
+.pc:hover .pc-thumb{transform:scale(1.02);filter:brightness(1.08);}
+.pc-view-hint{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text3);margin-top:10px;transition:color var(--tr);}
+.pc-view-hint svg{flex-shrink:0;}
+.pc:hover .pc-view-hint{color:var(--accent2);}
+
+/* LIGHTBOX */
+#lb{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.95);display:none;flex-direction:column;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px);}
+#lb.open{display:flex;}
+#lb-img{max-width:92vw;max-height:82vh;border-radius:12px;box-shadow:0 0 80px rgba(0,113,227,0.25);object-fit:contain;transition:opacity 0.2s ease;}
+#lb-title{margin-top:18px;font-size:15px;font-weight:700;color:var(--text);text-align:center;}
+#lb-sub{font-size:12px;color:var(--text3);margin-top:4px;text-align:center;}
+#lb-close{position:fixed;top:20px;right:24px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all var(--tr);}
+#lb-close:hover{background:rgba(255,255,255,0.2);transform:scale(1.1);}
+.lb-nav{position:fixed;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.8);font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all var(--tr);}
+.lb-nav:hover{background:rgba(0,113,227,0.4);border-color:var(--accent);color:#fff;}
+#lb-prev{left:18px;}
+#lb-next{right:18px;}
+#lb-counter{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);font-size:12px;color:var(--text3);background:rgba(0,0,0,0.5);padding:4px 14px;border-radius:100px;border:1px solid var(--border);}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  #nav{padding:0 20px;}.nav-links{display:none;}
+  .sec-wrap{padding:60px 20px;}
+  .edu-grid,.about-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:24px;}
+  #hero{padding:90px 24px 60px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-brand">Arpit Vats</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact-sec" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="star-canvas"></canvas>
+  <div class="hero-badge"><span class="hero-badge-dot"></span>Open to Full-Time Opportunities</div>
+  <div class="avatar-wrap" style="animation:fadeDown 0.8s 0.05s ease both;">
+    <div class="avatar-ring"></div>
+    <img class="avatar-img" src="arpit-photo.jpg" alt="Arpit Vats">
+    <div class="avatar-status"></div>
+  </div>
+  <h1 class="hero-name">Arpit Vats</h1>
+  <p class="hero-title">Mechanical &amp; Automation Engineer · MS Industrial Engineering</p>
+  <p id="tw"></p>
+  <div class="hero-ctas">
+    <a href="mailto:arpit.47vats@gmail.com" class="btn-primary">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      Get In Touch
+    </a>
+    <a href="https://linkedin.com/in/arpitvats" target="_blank" class="btn-ghost">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+    <a href="#portfolio" class="btn-ghost">View Portfolio ↓</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="h-stat-num">5+</div>
+      <div class="h-stat-lbl">Years Exp</div>
+    </div>
+    <div class="hero-stat">
+      <div class="h-stat-num">40+</div>
+      <div class="h-stat-lbl">Projects Designed</div>
+    </div>
+    <div class="hero-stat">
+      <div class="h-stat-num">10+</div>
+      <div class="h-stat-lbl">Certifications</div>
+    </div>
+  </div>
+  <div class="scroll-hint"><span>Scroll</span><div class="scroll-arr"></div></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<div id="about" class="sec-wrap">
+  <div class="sec-label rv">About Me</div>
+  <h2 class="sec-title rv d1">Engineering Ideas into Reality</h2>
+  <p class="sec-sub rv d2">From India's first Make-in-India laptop to Tesla's high-speed automation lines — I bring precision, systems thinking, and a bias for execution to every project.</p>
+  <div class="about-grid rv d3">
+    <div class="gc">
+      <p style="font-size:13.5px;color:var(--text2);line-height:1.85;">
+        I'm a <strong style="color:var(--text)">Mechanical &amp; Automation Engineer</strong> completing my MS in Industrial Engineering at <strong style="color:var(--accent2)">Arizona State University</strong>, currently interning at <strong style="color:var(--accent2)">Tesla</strong> in Palo Alto designing high-speed manufacturing automation.<br><br>
+        With 4 years of industry experience across robotics, 5G telecom hardware, and EV manufacturing, I specialize in mechanical design, thermal simulation, DFM, and cross-functional product delivery.
+      </p>
+    </div>
+    <div class="gc">
+      <div class="info-grid">
+        <div><div class="info-lbl">Location</div><div class="info-val">Sunnyvale, CA</div></div>
+        <div><div class="info-lbl">Phone</div><div class="info-val">602-796-9289</div></div>
+        <div><div class="info-lbl">Email</div><div class="info-val" style="font-size:12px;">arpit.47vats@gmail.com</div></div>
+        <div><div class="info-lbl">Status</div><span style="font-size:11px;font-weight:700;color:var(--green);background:rgba(52,199,89,0.1);border:1px solid rgba(52,199,89,0.2);padding:3px 10px;border-radius:100px;display:inline-block;margin-top:3px;">Open to Work</span></div>
+        <div><div class="info-lbl">Degree</div><div class="info-val" style="font-size:12px;">MS Industrial Eng.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<div id="experience" class="sec-wrap">
+  <div class="sec-label rv">Career</div>
+  <h2 class="sec-title rv d1">Professional Experience</h2>
+  <p class="sec-sub rv d2">Designing products at scale — from solar cleaning robots to 5G radio units to Tesla's automation infrastructure.</p>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot now"></div>
+      <div class="gc">
+        <div class="tl-head">
+          <div>
+            <div class="tl-role">Automation Engineer Intern <span class="tl-badge">Current</span></div>
+            <div class="tl-co">Tesla · Palo Alto, CA</div>
+          </div>
+          <div class="tl-dates">May 2025 – Present</div>
+        </div>
+        <ul class="tl-ul">
+          <li>Designed and iterated 3D CAD for high-speed automation lines, converting 2D concepts into scalable manufacturing layouts</li>
+          <li>Built centralized CAD library by standardizing line components and integrating supplier models, reducing design cycle time</li>
+          <li>Developed CapEx cost breakdowns and quotation comparisons across suppliers, supporting final selection decisions</li>
+          <li>Collaborated with camera suppliers to develop visual inspection database, optimizing camera count and cost estimates</li>
+          <li>Created waterjet machine selection model, project tracker for milestone monitoring, and vendor databases</li>
+          <li>Supported supplier NDAs, RFIs, SOWs, and RFQs for CapEx equipment onboarding</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="gc">
+        <div class="tl-head">
+          <div>
+            <div class="tl-role">Sr. Mechanical Design Engineer</div>
+            <div class="tl-co">VVDN Technologies · Manesar, India</div>
+          </div>
+          <div class="tl-dates">Jul 2022 – Jul 2024</div>
+        </div>
+        <ul class="tl-ul">
+          <li>Designed India's first Make-In-India laptop and 5G products (Radio Units, 1U servers, 5G emulator) in SolidWorks</li>
+          <li>Optimized thermal performance by <strong style="color:var(--accent2)">15%</strong> through Ansys thermal simulations</li>
+          <li>Led DFM initiatives integrating lean manufacturing for waste reduction and on-time delivery</li>
+          <li>Reduced production time by <strong style="color:var(--accent2)">20%</strong> via tolerance stack-up optimization and IEC-compliant packaging design</li>
+          <li>Managed BOM in ERP, oversaw assembly, procured components, and created technical drawings</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="gc">
+        <div class="tl-head">
+          <div>
+            <div class="tl-role">Mechanical Design Engineer</div>
+            <div class="tl-co">Jetsons Robotics · Delhi, India</div>
+          </div>
+          <div class="tl-dates">Sep 2020 – Jun 2022</div>
+        </div>
+        <ul class="tl-ul">
+          <li>Designed autonomous solar panel cleaning robot (Zero.V2) in Inventor; performed Ansys stress simulations and DFMEA</li>
+          <li>Optimized for various rooftop orientations — enabled smooth navigation and 15° incline climbing</li>
+          <li>Extended battery life by <strong style="color:var(--accent2)">38%</strong> through design optimization; increased panel efficiency by <strong style="color:var(--accent2)">17%</strong> on-site</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="gc">
+        <div class="tl-head">
+          <div>
+            <div class="tl-role">Engineering Intern</div>
+            <div class="tl-co">Geo Informatics Consultants · Ghaziabad, India</div>
+          </div>
+          <div class="tl-dates">May 2020 – Jun 2020</div>
+        </div>
+        <ul class="tl-ul">
+          <li>Performed reverse engineering with 3D scanning and Siemens NX; supported Industry 4.0 solution demos</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<div id="education" class="sec-wrap">
+  <div class="sec-label rv">Academic</div>
+  <h2 class="sec-title rv d1">Education</h2>
+  <div class="edu-grid rv d2">
+    <div class="gc">
+      <div class="edu-icon">🎓</div>
+      <div class="edu-deg">Master of Science — Industrial Engineering</div>
+      <div class="edu-sch">Arizona State University</div>
+      <div class="edu-meta">Tempe, AZ · Expected May 2026</div>
+    </div>
+    <div class="gc">
+      <div class="edu-icon">⚙️</div>
+      <div class="edu-deg">B.Tech — Mechanical &amp; Automation Engineering</div>
+      <div class="edu-sch">Guru Gobind Singh Indraprastha University</div>
+      <div class="edu-meta">Delhi, India · Sep 2020</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PORTFOLIO -->
+<div id="portfolio" class="sec-wrap">
+  <div class="sec-label rv">Work</div>
+  <h2 class="sec-title rv d1">Design Portfolio</h2>
+  <p class="sec-sub rv d2">Product designs, mechanical systems, and engineering simulations across robotics, telecom, and automotive domains.</p>
+
+  <div class="filter-bar rv d2">
+    <button class="fb on" data-f="all">All</button>
+    <button class="fb" data-f="prod">Products</button>
+    <button class="fb" data-f="sim">Simulations</button>
+    <button class="fb" data-f="prac">Practice Models</button>
+  </div>
+
+  <div class="port-grid">
+    <div class="pc" data-cat="prod" onclick="openLB(0)">
+      <img class="pc-thumb" src="portfolio_imgs/page_03.jpg" alt="Solar Panel Cleaning Robot">
+      <span class="pc-tag t-prod">Product</span>
+      <div class="pc-name">Solar Panel Cleaning Robot</div>
+      <div class="pc-sub">Zero.V2 · Jetsons Robotics</div>
+      <div class="pc-desc">Autonomous waterless rooftop cleaning robot in AL6061 sheet metal. 1000×450mm. IP54 rated, 15° incline capable. Boosted panel efficiency 17%.</div>
+      <div class="pc-chips"><span class="chip">Al6061 / Al7075</span><span class="chip">IP54</span><span class="chip">Inventor</span><span class="chip">DFMEA</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view design</div>
+    </div>
+    <div class="pc" data-cat="prod" onclick="openLB(1)">
+      <img class="pc-thumb" src="portfolio_imgs/page_04.jpg" alt="Laptop">
+      <span class="pc-tag t-prod">Product</span>
+      <div class="pc-name">Make-in-India Laptop</div>
+      <div class="pc-sub">JSL 14.1" · VVDN Technologies</div>
+      <div class="pc-desc">India's first domestically designed laptop. 300×240mm. Full panel stack (A/B/C/D), keyboard, mainboard, camera, Wi-Fi antenna. Hinge, vibration, drop, and thermal tested.</div>
+      <div class="pc-chips"><span class="chip">ABS+PC</span><span class="chip">SolidWorks</span><span class="chip">DFM</span><span class="chip">ERP BOM</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view design</div>
+    </div>
+    <div class="pc" data-cat="prod" onclick="openLB(2)">
+      <img class="pc-thumb" src="portfolio_imgs/page_05.jpg" alt="5G Radio Unit">
+      <span class="pc-tag t-prod">Product</span>
+      <div class="pc-name">5G Radio Unit</div>
+      <div class="pc-sub">Band-40 · VVDN Technologies</div>
+      <div class="pc-desc">5G Macro Cell Radio Unit with 4T4R antenna config. 400×230×172mm. Pole and wall mount. AlSi7Mg enclosure. IP65, salt fog, thermal, and drop certified.</div>
+      <div class="pc-chips"><span class="chip">AlSi7Mg</span><span class="chip">IP65</span><span class="chip">4T4R</span><span class="chip">5G NR</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view design</div>
+    </div>
+    <div class="pc" data-cat="prod" onclick="openLB(3)">
+      <img class="pc-thumb" src="portfolio_imgs/page_06.jpg" alt="5G Cavity Filter">
+      <span class="pc-tag t-prod">Product</span>
+      <div class="pc-name">5G Cavity Filter</div>
+      <div class="pc-sub">RF Filter · VVDN Technologies</div>
+      <div class="pc-desc">5G cavity filter with 20W power dissipation per port. 150×85mm. AlSi7Mg enclosure with Al6061 RF shield. Thermal, drop, and salt fog qualified.</div>
+      <div class="pc-chips"><span class="chip">AlSi7Mg</span><span class="chip">20W/port</span><span class="chip">RF</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view design</div>
+    </div>
+    <div class="pc" data-cat="prod" onclick="openLB(4)">
+      <img class="pc-thumb" src="portfolio_imgs/page_07.jpg" alt="5G Emulator">
+      <span class="pc-tag t-prod">Product</span>
+      <div class="pc-name">5G Emulator</div>
+      <div class="pc-sub">DuoSIM · VVDN Technologies</div>
+      <div class="pc-desc">5G device testing emulator in standard 1U rack format. 400×197mm. Multi-layer RF shielding and FPGA heatsink for thermal management. Vibration and drop tested.</div>
+      <div class="pc-chips"><span class="chip">1U Rack</span><span class="chip">FPGA</span><span class="chip">RF Shield</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view design</div>
+    </div>
+    <div class="pc" data-cat="prod" onclick="openLB(5)">
+      <img class="pc-thumb" src="portfolio_imgs/page_08.jpg" alt="RF Shield and Heatsink">
+      <span class="pc-tag t-prod">Product</span>
+      <div class="pc-name">RF Shield &amp; Heatsink</div>
+      <div class="pc-sub">DuoSIM Components · VVDN Technologies</div>
+      <div class="pc-desc">Al6061 RF shields (200×100mm) and FPGA heatsink (50×50mm) for 5G emulator. EMI shielding and thermal dissipation for high-density RF board.</div>
+      <div class="pc-chips"><span class="chip">Al6061</span><span class="chip">EMI</span><span class="chip">Thermal</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view design</div>
+    </div>
+    <div class="pc" data-cat="prod" onclick="openLB(6)">
+      <img class="pc-thumb" src="portfolio_imgs/page_09.jpg" alt="Electric Go-Kart">
+      <span class="pc-tag t-prod">Product</span>
+      <div class="pc-name">Electric Go-Kart</div>
+      <div class="pc-sub">Major Project · GGSIPU</div>
+      <div class="pc-desc">Lightweight electric go-kart optimized for weight-to-strength. AISI 1018 steel chassis, BLDC motor, disc brakes, custom steering. Front/rear/side impact and vibration tested.</div>
+      <div class="pc-chips"><span class="chip">AISI 1018</span><span class="chip">BLDC</span><span class="chip">CATIA</span><span class="chip">ANSYS</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view design</div>
+    </div>
+    <div class="pc" data-cat="prod" onclick="openLB(7)">
+      <img class="pc-thumb" src="portfolio_imgs/page_10.jpg" alt="Brake Caliper">
+      <span class="pc-tag t-prod">Product</span>
+      <div class="pc-name">Brake Caliper</div>
+      <div class="pc-sub">Go-Kart Component · GGSIPU</div>
+      <div class="pc-desc">Custom cast iron brake caliper (340×154mm) for electric go-kart. Designed to minimize stopping distance with thermal, impact, and stress validation.</div>
+      <div class="pc-chips"><span class="chip">Cast Iron</span><span class="chip">340×154mm</span><span class="chip">FEA</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view design</div>
+    </div>
+    <div class="pc" data-cat="prod" onclick="openLB(8)">
+      <img class="pc-thumb" src="portfolio_imgs/page_11.jpg" alt="BLDC Motor">
+      <span class="pc-tag t-prod">Product</span>
+      <div class="pc-name">BLDC Motor</div>
+      <div class="pc-sub">Go-Kart Powertrain · GGSIPU</div>
+      <div class="pc-desc">48V, 3000 RPM brushless DC motor with stainless steel housing. Primary powertrain for electric go-kart. Thermal, impact, stress, and vibration validated.</div>
+      <div class="pc-chips"><span class="chip">48V</span><span class="chip">3000 RPM</span><span class="chip">SS Housing</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view design</div>
+    </div>
+    <div class="pc" data-cat="prod" onclick="openLB(9)">
+      <img class="pc-thumb" src="portfolio_imgs/page_12.jpg" alt="Turbine Blades">
+      <span class="pc-tag t-prod">Product</span>
+      <div class="pc-name">Turbine Blades</div>
+      <div class="pc-sub">Research Project · GGSIPU</div>
+      <div class="pc-desc">IN-738 superalloy turbine blade model analyzed for material chipping effects on efficiency via modal analysis. Studied degradation patterns and performance loss.</div>
+      <div class="pc-chips"><span class="chip">IN-738</span><span class="chip">Modal Analysis</span><span class="chip">SolidWorks</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view design</div>
+    </div>
+    <!-- SIMULATIONS -->
+    <div class="pc" data-cat="sim" onclick="openLB(10)">
+      <img class="pc-thumb" src="portfolio_imgs/page_18.jpg" alt="Go-Kart Static Structural">
+      <span class="pc-tag t-sim">Simulation</span>
+      <div class="pc-name">Go-Kart — Static Structural</div>
+      <div class="pc-sub">Ansys Mechanical</div>
+      <div class="pc-desc">Total deformation analysis of go-kart chassis under 6400N applied to front, rear, and side. Validated structural integrity across all impact scenarios.</div>
+      <div class="pc-chips"><span class="chip">Static Structural</span><span class="chip">6400N</span><span class="chip">Deformation</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view simulation</div>
+    </div>
+    <div class="pc" data-cat="sim" onclick="openLB(11)">
+      <img class="pc-thumb" src="portfolio_imgs/page_19.jpg" alt="Turbine Blade CFD">
+      <span class="pc-tag t-sim">Simulation</span>
+      <div class="pc-name">Turbine Blade — CFD</div>
+      <div class="pc-sub">Ansys Fluent</div>
+      <div class="pc-desc">Airflow analysis through turbine blades without a damper. Studied flow patterns, pressure distribution, and efficiency impact of geometry changes.</div>
+      <div class="pc-chips"><span class="chip">CFD</span><span class="chip">Airflow</span><span class="chip">Turbulence</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view simulation</div>
+    </div>
+    <div class="pc" data-cat="sim" onclick="openLB(12)">
+      <img class="pc-thumb" src="portfolio_imgs/page_20.jpg" alt="Stage Truss Buckling">
+      <span class="pc-tag t-sim">Simulation</span>
+      <div class="pc-name">Stage Truss — Linear Buckling</div>
+      <div class="pc-sub">Ansys Mechanical</div>
+      <div class="pc-desc">Buckling and deformation analysis of stage truss under applied loading. Identified critical load factors and structural failure modes.</div>
+      <div class="pc-chips"><span class="chip">Linear Buckling</span><span class="chip">Structural</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view simulation</div>
+    </div>
+    <div class="pc" data-cat="sim" onclick="openLB(13)">
+      <img class="pc-thumb" src="portfolio_imgs/page_21.jpg" alt="Cylinder Block Thermal">
+      <span class="pc-tag t-sim">Simulation</span>
+      <div class="pc-name">Cylinder Block — Thermal</div>
+      <div class="pc-sub">Ansys Steady-State Thermal</div>
+      <div class="pc-desc">Steady-state thermal analysis of cylinder block. Mapped heat flux and temperature distribution to identify hotspots and optimize cooling paths.</div>
+      <div class="pc-chips"><span class="chip">Steady-State</span><span class="chip">Heat Flux</span><span class="chip">Thermal</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view simulation</div>
+    </div>
+    <div class="pc" data-cat="sim" onclick="openLB(14)">
+      <img class="pc-thumb" src="portfolio_imgs/page_22.jpg" alt="Motor Cap Modal">
+      <span class="pc-tag t-sim">Simulation</span>
+      <div class="pc-name">Motor Cap — Modal</div>
+      <div class="pc-sub">Ansys Modal</div>
+      <div class="pc-desc">Natural frequency and resonance analysis of motor cap. Identified critical modes to prevent operational failures due to vibration.</div>
+      <div class="pc-chips"><span class="chip">Modal</span><span class="chip">Vibration</span><span class="chip">Resonance</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view simulation</div>
+    </div>
+    <div class="pc" data-cat="sim" onclick="openLB(15)">
+      <img class="pc-thumb" src="portfolio_imgs/page_23.jpg" alt="Bullet Explicit Dynamics">
+      <span class="pc-tag t-sim">Simulation</span>
+      <div class="pc-name">Bullet Impact — Explicit Dynamics</div>
+      <div class="pc-sub">Ansys Explicit Dynamics</div>
+      <div class="pc-desc">High-speed impact simulation of bullet striking a surface. Material failure modeling and progressive deformation analysis.</div>
+      <div class="pc-chips"><span class="chip">Explicit Dynamics</span><span class="chip">Impact</span><span class="chip">Deformation</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view simulation</div>
+    </div>
+    <div class="pc" data-cat="sim" onclick="openLB(16)">
+      <img class="pc-thumb" src="portfolio_imgs/page_24.jpg" alt="Soda Can Crush">
+      <span class="pc-tag t-sim">Simulation</span>
+      <div class="pc-name">Soda Can — Crush Analysis</div>
+      <div class="pc-sub">Ansys Explicit Dynamics</div>
+      <div class="pc-desc">Deformation analysis of soda can struck by a rod. Progressive collapse behavior and energy absorption study.</div>
+      <div class="pc-chips"><span class="chip">Explicit Dynamics</span><span class="chip">Crush</span><span class="chip">Energy Absorption</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view simulation</div>
+    </div>
+    <div class="pc" data-cat="sim" onclick="openLB(17)">
+      <img class="pc-thumb" src="portfolio_imgs/page_25.jpg" alt="Centrifugal Pump CFX">
+      <span class="pc-tag t-sim">Simulation</span>
+      <div class="pc-name">Centrifugal Pump — CFX</div>
+      <div class="pc-sub">Ansys CFX</div>
+      <div class="pc-desc">Flow and vapor cavitation analysis through centrifugal pump at 35 kg/s mass flow rate. Identified cavitation zones and performance degradation.</div>
+      <div class="pc-chips"><span class="chip">CFX</span><span class="chip">Cavitation</span><span class="chip">35 kg/s</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view simulation</div>
+    </div>
+    <!-- PRACTICE -->
+    <div class="pc" data-cat="prac" onclick="openLB(18)">
+      <img class="pc-thumb" src="portfolio_imgs/page_13.jpg" alt="ROV Model">
+      <span class="pc-tag t-prac">Practice</span>
+      <div class="pc-name">ROV Model</div>
+      <div class="pc-sub">Stainless Steel · Custom</div>
+      <div class="pc-desc">Remotely operated vehicle designed for practice — complex underwater vehicle geometry in stainless steel with custom specifications.</div>
+      <div class="pc-chips"><span class="chip">SS</span><span class="chip">Custom Dims</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view design</div>
+    </div>
+    <div class="pc" data-cat="prac" onclick="openLB(19)">
+      <img class="pc-thumb" src="portfolio_imgs/page_14.jpg" alt="Heat Exchanger">
+      <span class="pc-tag t-prac">Practice</span>
+      <div class="pc-name">Heat Exchanger</div>
+      <div class="pc-sub">Thermal Component · Custom</div>
+      <div class="pc-desc">Shell and tube heat exchanger modeled to custom specifications for practice and portfolio demonstration of thermal system CAD proficiency.</div>
+      <div class="pc-chips"><span class="chip">Thermal</span><span class="chip">Shell &amp; Tube</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view design</div>
+    </div>
+    <div class="pc" data-cat="prac" onclick="openLB(20)">
+      <img class="pc-thumb" src="portfolio_imgs/page_15.jpg" alt="Centrifugal Pump">
+      <span class="pc-tag t-prac">Practice</span>
+      <div class="pc-name">Centrifugal Pump</div>
+      <div class="pc-sub">Fluid Machinery · Custom</div>
+      <div class="pc-desc">Centrifugal pump modeled to custom dimensions, demonstrating fluid machinery CAD proficiency.</div>
+      <div class="pc-chips"><span class="chip">Fluid</span><span class="chip">Impeller</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view design</div>
+    </div>
+    <div class="pc" data-cat="prac" onclick="openLB(21)">
+      <img class="pc-thumb" src="portfolio_imgs/page_16.jpg" alt="CFL Bulb">
+      <span class="pc-tag t-prac">Practice</span>
+      <div class="pc-name">CFL Bulb</div>
+      <div class="pc-sub">Consumer Product · Custom</div>
+      <div class="pc-desc">Compact fluorescent bulb modeled for practice. Demonstrates consumer product CAD accuracy and surface modeling.</div>
+      <div class="pc-chips"><span class="chip">Consumer</span><span class="chip">Surface Model</span></div>
+      <div class="pc-view-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Click to view design</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- KEY PROJECTS -->
+<div id="projects" class="sec-wrap">
+  <div class="sec-label rv">Academic &amp; Personal</div>
+  <h2 class="sec-title rv d1">Key Projects</h2>
+  <div class="proj-grid">
+    <div class="pj rv">
+      <div class="pj-yr">Dec 2024 · Master's Class Project</div>
+      <div class="pj-name">Book Sales &amp; Rating Database System</div>
+      <div class="pj-desc">Built scalable ER/EER-based database using Python and SQL. Delivered advanced search functionality and 99%-accurate predictive analytics for book sales and rating data.</div>
+      <div class="pc-chips" style="margin-top:14px"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">PostgreSQL</span><span class="chip">ER/EER</span></div>
+    </div>
+    <div class="pj rv d1">
+      <div class="pj-yr">Apr 2020 · Undergrad Major Project</div>
+      <div class="pj-name">Electric Go-Kart</div>
+      <div class="pj-desc">Full design and simulation of electric go-kart in CATIA and ANSYS. Optimized weight-to-strength ratio, produced manufacturing drawings, procured all components within budget.</div>
+      <div class="pc-chips" style="margin-top:14px"><span class="chip">CATIA V5</span><span class="chip">ANSYS</span><span class="chip">FEA</span><span class="chip">AISI 1018</span></div>
+    </div>
+    <div class="pj rv d2">
+      <div class="pj-yr">Jun 2018 · Undergrad Research</div>
+      <div class="pj-name">Turbine Blade Analysis</div>
+      <div class="pj-desc">Designed and simulated IN-738 turbine blade models in SolidWorks and ANSYS to study material chipping effects on aerodynamic efficiency through modal analysis.</div>
+      <div class="pc-chips" style="margin-top:14px"><span class="chip">SolidWorks</span><span class="chip">ANSYS</span><span class="chip">IN-738</span><span class="chip">Modal</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<div id="skills" class="sec-wrap">
+  <div class="sec-label rv">Toolkit</div>
+  <h2 class="sec-title rv d1">Skills &amp; Tools</h2>
+  <div class="skills-grid">
+    <div class="gc rv">
+      <div class="sg-title">CAD &amp; Design</div>
+      <div class="stags">
+        <span class="stag">SolidWorks</span><span class="stag">Siemens NX</span><span class="stag">CATIA V5</span>
+        <span class="stag">3D Experience</span><span class="stag">AutoCAD</span><span class="stag">Creo</span>
+        <span class="stag">Inventor</span><span class="stag">KeyShot</span>
+      </div>
+    </div>
+    <div class="gc rv d1">
+      <div class="sg-title">Simulation &amp; Analysis</div>
+      <div class="stags">
+        <span class="stag">Ansys</span><span class="stag">FEA</span><span class="stag">CFD</span>
+        <span class="stag">MATLAB</span><span class="stag">Visual Components</span>
+        <span class="stag">JMP Pro 18</span><span class="stag">Minitab</span>
+      </div>
+    </div>
+    <div class="gc rv d2">
+      <div class="sg-title">Data &amp; Programming</div>
+      <div class="stags">
+        <span class="stag">Python</span><span class="stag">MySQL</span><span class="stag">PostgreSQL</span>
+        <span class="stag">Tableau</span><span class="stag">Power BI</span><span class="stag">HighQA</span>
+      </div>
+    </div>
+    <div class="gc rv d3">
+      <div class="sg-title">Engineering Proficiencies</div>
+      <div class="stags">
+        <span class="stag">Thermal Design</span><span class="stag">Sheet Metal</span><span class="stag">Plastic Design</span>
+        <span class="stag">GD&amp;T</span><span class="stag">DFM / DFA</span><span class="stag">FMEA</span>
+        <span class="stag">BOM Management</span><span class="stag">Tolerance Stack-Up</span>
+        <span class="stag">Packaging Design</span><span class="stag">Cable Routing</span>
+        <span class="stag">3D Scanning</span><span class="stag">Value Stream Mapping</span>
+      </div>
+    </div>
+    <div class="gc rv">
+      <div class="sg-title">PM &amp; Process</div>
+      <div class="stags">
+        <span class="stag">Jira</span><span class="stag">ERP</span><span class="stag">Smartsheet</span>
+        <span class="stag">Lean Manufacturing</span><span class="stag">Line Balancing</span>
+        <span class="stag">SOP Creation</span><span class="stag">RFI / RFQ / SOW</span><span class="stag">CapEx Planning</span>
+      </div>
+    </div>
+    <div class="gc rv d1">
+      <div class="sg-title">Productivity</div>
+      <div class="stags">
+        <span class="stag">Microsoft Office</span><span class="stag">Google Workspace</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CERTIFICATIONS -->
+<div id="certifications" class="sec-wrap">
+  <div class="sec-label rv">Credentials</div>
+  <h2 class="sec-title rv d1">Certifications</h2>
+  <div class="certs-grid">
+    <div class="cert rv"><div class="cert-ico">🟢</div><div><div class="cert-name">Six Sigma Green Belt</div><div class="cert-by">ASU · Ira A. Fulton Schools of Engineering</div></div></div>
+    <div class="cert rv d1"><div class="cert-ico">🟡</div><div><div class="cert-name">Lean Six Sigma Yellow Belt</div><div class="cert-by">ASU · Ira A. Fulton Schools of Engineering · Nov 2024</div></div></div>
+    <div class="cert rv d2"><div class="cert-ico">📐</div><div><div class="cert-name">SolidWorks Certification</div><div class="cert-by">Dassault Systèmes</div></div></div>
+    <div class="cert rv"><div class="cert-ico">📊</div><div><div class="cert-name">Six Sigma Foundations</div><div class="cert-by">LinkedIn Learning</div></div></div>
+    <div class="cert rv d1"><div class="cert-ico">🗂️</div><div><div class="cert-name">Project Management Foundations</div><div class="cert-by">LinkedIn Learning</div></div></div>
+    <div class="cert rv d2"><div class="cert-ico">🔩</div><div><div class="cert-name">AutoCAD Certification</div><div class="cert-by">Autodesk</div></div></div>
+    <div class="cert rv"><div class="cert-ico">💻</div><div><div class="cert-name">Ansys Certification</div><div class="cert-by">Ansys Inc.</div></div></div>
+    <div class="cert rv d1"><div class="cert-ico">📈</div><div><div class="cert-name">Minitab Certification</div><div class="cert-by">Minitab</div></div></div>
+    <div class="cert rv d2"><div class="cert-ico">📦</div><div><div class="cert-name">Supply Chain Logistics</div><div class="cert-by">Rutgers University · Coursera · Jun 2025</div></div></div>
+    <div class="cert rv"><div class="cert-ico">🔗</div><div><div class="cert-name">Implementing Supply Chain Mgmt</div><div class="cert-by">Rutgers University</div></div></div>
+    <div class="cert rv d1"><div class="cert-ico">🗂️</div><div><div class="cert-name">Foundations of Project Management</div><div class="cert-by">Google · Coursera · Apr 2025</div></div></div>
+    <div class="cert rv d2"><div class="cert-ico">⚡</div><div><div class="cert-name">Electric Vehicle Training</div><div class="cert-by">ASU · Ira A. Fulton Schools of Engineering · Mar 2025</div></div></div>
+    <div class="cert rv"><div class="cert-ico">🏭</div><div><div class="cert-name">CSCMP Supply Chain Foundations</div><div class="cert-by">LinkedIn Learning · CSCMP · Mar 2025</div></div></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<div id="contact-sec" class="sec-wrap" style="text-align:center;">
+  <div class="sec-label rv">Reach Out</div>
+  <h2 class="sec-title rv d1">Let's Connect</h2>
+  <p class="sec-sub rv d2" style="margin:0 auto 40px;">Open to full-time roles in mechanical design, automation, and industrial engineering. Based in Sunnyvale, CA.</p>
+  <div class="contact-card rv d3">
+    <div class="avatar-wrap" style="margin-bottom:16px;">
+      <div class="avatar-ring"></div>
+      <img class="avatar-img" src="arpit-photo.jpg" alt="Arpit Vats" style="width:90px;height:90px;">
+      <div class="avatar-status"></div>
+    </div>
+    <div style="font-size:20px;font-weight:800;color:var(--text);margin-bottom:6px;">Arpit Vats</div>
+    <div style="font-size:13px;color:var(--text3);">Mechanical &amp; Automation Engineer · Tesla Intern · MS Industrial Engineering</div>
+    <div class="ci"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><a href="mailto:arpit.47vats@gmail.com">arpit.47vats@gmail.com</a></div>
+    <div class="ci"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg><span>602-796-9289</span></div>
+    <div class="ci"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="color:var(--accent2)"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg><a href="https://linkedin.com/in/arpitvats" target="_blank">linkedin.com/in/arpitvats</a></div>
+    <div class="ci"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Sunnyvale, CA</span></div>
+    <div style="margin-top:28px;"><a href="mailto:arpit.47vats@gmail.com" class="btn-primary">Send a Message ✉️</a></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>© 2025 Arpit Vats · Mechanical &amp; Automation Engineer · Sunnyvale, CA</div>
+  <div style="margin-top:5px;color:var(--text3);font-size:11px;">Designed with precision — just like every part.</div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lb">
+  <button id="lb-close" onclick="closeLB()">✕</button>
+  <button class="lb-nav" id="lb-prev" onclick="lbNav(-1)">‹</button>
+  <img id="lb-img" src="" alt="">
+  <button class="lb-nav" id="lb-next" onclick="lbNav(1)">›</button>
+  <div id="lb-title"></div>
+  <div id="lb-sub"></div>
+  <div id="lb-counter"></div>
+</div>
+
+<!-- SCROLL TOP -->
+<button id="stb" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* STAR FIELD */
+  const canvas = document.getElementById('star-canvas');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+  function initStars() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    stars = [];
+    for (let i = 0; i < 200; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.3 + 0.3,
+        a: Math.random(),
+        s: (Math.random() * 0.004 + 0.001) * (Math.random() < 0.5 ? 1 : -1)
+      });
+    }
+  }
+  function drawStars() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(st => {
+      st.a += st.s;
+      if (st.a >= 1) { st.a = 1; st.s *= -1; }
+      if (st.a <= 0) { st.a = 0; st.s *= -1; }
+      ctx.beginPath();
+      ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2);
+      const cyan = Math.random() < 0.12;
+      ctx.fillStyle = `rgba(${cyan ? '0,212,255' : '180,200,255'},${st.a})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(drawStars);
+  }
+  initStars();
+  drawStars();
+  window.addEventListener('resize', initStars);
+
+  /* TYPEWRITER */
+  const phrases = [
+    'Designing automation lines at Tesla',
+    'SolidWorks · Ansys · CATIA · Siemens NX',
+    'Turning 2D concepts into scalable manufacturing',
+    'Six Sigma Green Belt · MS Industrial Engineering',
+    'From solar robots to 5G hardware to EVs'
+  ];
+  let pi = 0, ci = 0, del = false;
+  const tw = document.getElementById('tw');
+  function type() {
+    const p = phrases[pi];
+    if (!del) {
+      tw.textContent = p.slice(0, ++ci);
+      if (ci === p.length) { del = true; setTimeout(type, 2200); return; }
+      setTimeout(type, 46);
+    } else {
+      tw.textContent = p.slice(0, --ci);
+      if (ci === 0) { del = false; pi = (pi + 1) % phrases.length; setTimeout(type, 350); return; }
+      setTimeout(type, 20);
+    }
+  }
+  type();
+
+  /* SCROLL REVEAL */
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); ro.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.rv').forEach(el => ro.observe(el));
+
+  /* TIMELINE REVEAL */
+  const tro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); tro.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.tl-item').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.12) + 's';
+    tro.observe(el);
+  });
+
+  /* SCROLL TOP BUTTON */
+  const stb = document.getElementById('stb');
+  window.addEventListener('scroll', () => stb.classList.toggle('vis', window.scrollY > 400));
+
+  /* NAV ACTIVE */
+  const sections = document.querySelectorAll('[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const nro = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const a = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-35% 0px -55% 0px' });
+  sections.forEach(s => nro.observe(s));
+
+  /* PORTFOLIO FILTER */
+  document.querySelectorAll('.fb').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.fb').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      const f = btn.dataset.f;
+      document.querySelectorAll('.pc').forEach(c => {
+        c.classList.toggle('hide', f !== 'all' && c.dataset.cat !== f);
+      });
+    });
+  });
+
+  /* LIGHTBOX */
+  const lbData = [
+    {img:'portfolio_imgs/page_03.jpg', title:'Solar Panel Cleaning Robot', sub:'Zero.V2 · Jetsons Robotics · Al6061 Sheet Metal · IP54 · 1000×450mm'},
+    {img:'portfolio_imgs/page_04.jpg', title:'Make-in-India Laptop',        sub:'JSL 14.1" · VVDN Technologies · ABS+PC · SolidWorks'},
+    {img:'portfolio_imgs/page_05.jpg', title:'5G Radio Unit',                sub:'Band-40 · VVDN Technologies · AlSi7Mg · IP65 · 4T4R'},
+    {img:'portfolio_imgs/page_06.jpg', title:'5G Cavity Filter',             sub:'RF Filter · VVDN Technologies · AlSi7Mg · 20W/port'},
+    {img:'portfolio_imgs/page_07.jpg', title:'5G Emulator',                  sub:'DuoSIM · VVDN Technologies · 1U Rack · FPGA · RF Shield'},
+    {img:'portfolio_imgs/page_08.jpg', title:'RF Shield & Heatsink',         sub:'DuoSIM Components · VVDN Technologies · Al6061'},
+    {img:'portfolio_imgs/page_09.jpg', title:'Electric Go-Kart',             sub:'Major Project · GGSIPU · AISI 1018 · BLDC Motor · CATIA + ANSYS'},
+    {img:'portfolio_imgs/page_10.jpg', title:'Brake Caliper',                sub:'Go-Kart Component · GGSIPU · Cast Iron · 340×154mm'},
+    {img:'portfolio_imgs/page_11.jpg', title:'BLDC Motor',                   sub:'Go-Kart Powertrain · GGSIPU · 48V · 3000 RPM'},
+    {img:'portfolio_imgs/page_12.jpg', title:'Turbine Blades',               sub:'Research Project · GGSIPU · IN-738 Superalloy · Modal Analysis'},
+    {img:'portfolio_imgs/page_18.jpg', title:'Go-Kart — Static Structural',  sub:'Ansys Mechanical · 6400N Load · Deformation Analysis'},
+    {img:'portfolio_imgs/page_19.jpg', title:'Turbine Blade — CFD',          sub:'Ansys Fluent · Airflow Analysis · Turbulence Study'},
+    {img:'portfolio_imgs/page_20.jpg', title:'Stage Truss — Linear Buckling',sub:'Ansys Mechanical · Buckling & Deformation Analysis'},
+    {img:'portfolio_imgs/page_21.jpg', title:'Cylinder Block — Thermal',     sub:'Ansys Steady-State Thermal · Heat Flux Mapping'},
+    {img:'portfolio_imgs/page_22.jpg', title:'Motor Cap — Modal Analysis',   sub:'Ansys Modal · Natural Frequency & Resonance'},
+    {img:'portfolio_imgs/page_23.jpg', title:'Bullet Impact',                sub:'Ansys Explicit Dynamics · High-Speed Impact Simulation'},
+    {img:'portfolio_imgs/page_24.jpg', title:'Soda Can — Crush Analysis',    sub:'Ansys Explicit Dynamics · Progressive Collapse Study'},
+    {img:'portfolio_imgs/page_25.jpg', title:'Centrifugal Pump — CFX',       sub:'Ansys CFX · Cavitation Analysis · 35 kg/s Mass Flow'},
+    {img:'portfolio_imgs/page_13.jpg', title:'ROV Model',                    sub:'Practice Model · Stainless Steel · Custom Dimensions'},
+    {img:'portfolio_imgs/page_14.jpg', title:'Heat Exchanger',               sub:'Practice Model · Shell & Tube · Custom Dimensions'},
+    {img:'portfolio_imgs/page_15.jpg', title:'Centrifugal Pump',             sub:'Practice Model · Fluid Machinery · Custom Dimensions'},
+    {img:'portfolio_imgs/page_16.jpg', title:'CFL Bulb',                     sub:'Practice Model · Consumer Product · Surface Modelling'}
+  ];
+
+  let lbIdx = 0;
+  const lb    = document.getElementById('lb');
+  const lbImg = document.getElementById('lb-img');
+  const lbTit = document.getElementById('lb-title');
+  const lbSub = document.getElementById('lb-sub');
+  const lbCtr = document.getElementById('lb-counter');
+
+  window.openLB = function(idx) {
+    lbIdx = idx;
+    lbRender();
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+  window.closeLB = function() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  window.lbNav = function(dir) {
+    lbIdx = (lbIdx + dir + lbData.length) % lbData.length;
+    lbImg.style.opacity = '0';
+    setTimeout(() => { lbRender(); lbImg.style.opacity = '1'; }, 160);
+  };
+  function lbRender() {
+    const d = lbData[lbIdx];
+    lbImg.src = d.img;
+    lbTit.textContent = d.title;
+    lbSub.textContent = d.sub;
+    lbCtr.textContent = (lbIdx + 1) + ' / ' + lbData.length;
+  }
+  lb.addEventListener('click', e => { if (e.target === lb) closeLB(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLB();
+    if (e.key === 'ArrowRight') lbNav(1);
+    if (e.key === 'ArrowLeft')  lbNav(-1);
+  });
+
+});
+</script>
+</body>
+</html>
